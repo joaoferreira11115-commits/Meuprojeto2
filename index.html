@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b2a">
+<title>Loja de Natal | Árvores de Natal</title>
+<style>
+:root{--green:#123b2a;--green2:#1d5a3d;--red:#b52d35;--gold:#e6bd68;--cream:#fffaf0;--ink:#26332b}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+header{background:linear-gradient(135deg,#123b2a,#1d5a3d);color:white;padding:34px 18px 42px;text-align:center}
+.brand{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#f4d58c;font-weight:bold}
+h1{font-family:Georgia,serif;font-size:clamp(34px,7vw,54px);margin:12px 0 8px}
+header p{max-width:600px;margin:0 auto;line-height:1.55;color:#f4f1e8}
+main{max-width:850px;margin:-18px auto 40px;padding:0 15px}
+.panel{background:white;border-radius:18px;padding:22px;box-shadow:0 8px 28px #173b2a18;margin-bottom:18px}
+h2{font-family:Georgia,serif;color:var(--green);margin:0 0 8px;font-size:26px}
+.muted{color:#647067;line-height:1.5;font-size:14px}
+.product{display:flex;gap:16px;align-items:center;background:#f6f4eb;border-radius:14px;padding:15px;margin-top:15px}
+.tree{font-size:62px;line-height:1}
+.product strong{display:block;color:var(--green);font-size:18px;margin-bottom:5px}
+label{display:block;font-weight:700;font-size:14px;margin:14px 0 6px}
+input,select,textarea{width:100%;padding:13px;border:1px solid #d7ded7;border-radius:10px;font-size:16px;background:#fff;color:#26332b}
+input:focus,select:focus,textarea:focus{outline:2px solid #9bc5a7;border-color:#1d5a3d}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 13px}
+button{border:0;border-radius:11px;padding:15px 18px;font-size:16px;font-weight:bold;cursor:pointer;width:100%;background:var(--red);color:white;margin-top:18px}
+button:active{transform:scale(.99)}
+.note{background:#fff7e5;border-left:4px solid var(--gold);padding:13px;border-radius:8px;font-size:13px;line-height:1.5;margin-top:14px}
+#result{display:none;background:#edf7ef;border:1px solid #b9d9c0;border-radius:12px;padding:16px;margin-top:16px;line-height:1.55}
+footer{text-align:center;color:#69756c;font-size:12px;padding:8px 20px 30px}
+.small{font-size:12px;color:#66736a}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.panel{padding:18px}.product{align-items:flex-start}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">✨ Boas festas ✨</div>
+  <h1>Loja de Natal</h1>
+  <p>Deixe sua casa no clima do Natal. Confira nossas árvores e envie seu pedido para consultar disponibilidade e entrega.</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>Árvores de Natal 🎄</h2>
+    <p class="muted">Escolha a quantidade e envie seus dados para consultar preço, estoque, frete e prazo. A compra só será confirmada depois do nosso retorno.</p>
+    <div class="product">
+      <div class="tree" aria-hidden="true">🎄</div>
+      <div><strong>Árvore de Natal</strong><span class="muted">Modelos e tamanhos sujeitos à disponibilidade. Consulte fotos e valores pelo atendimento.</span></div>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>Dados para o pedido</h2>
+    <p class="muted">Preencha os dados para que a loja possa verificar a entrega. Seus dados serão enviados ao atendimento pelo WhatsApp e não ficam salvos neste site.</p>
+    <form id="orderForm">
+      <label for="name">Nome completo *</label>
+      <input id="name" autocomplete="name" required maxlength="100" placeholder="Seu nome completo">
+      <div class="grid">
+        <div><label for="phone">Telefone / WhatsApp *</label><input id="phone" autocomplete="tel" required placeholder="(11) 99999-9999"></div>
+        <div><label for="qty">Quantidade *</label><input id="qty" type="number" min="1" max="20" value="1" required></div>
+      </div>
+      <div class="grid">
+        <div><label for="cep">CEP *</label><input id="cep" autocomplete="postal-code" required placeholder="00000-000" maxlength="9"></div>
+        <div><label for="city">Cidade *</label><input id="city" autocomplete="address-level2" required placeholder="Sua cidade"></div>
+      </div>
+      <div class="grid">
+        <div><label for="state">Estado (UF) *</label><input id="state" autocomplete="address-level1" required maxlength="2" placeholder="SP"></div>
+        <div><label for="district">Bairro *</label><input id="district" required autocomplete="address-level3" placeholder="Seu bairro"></div>
+      </div>
+      <label for="street">Rua / Avenida *</label><input id="street" required autocomplete="street-address" placeholder="Nome da rua ou avenida">
+      <div class="grid">
+        <div><label for="number">Número *</label><input id="number" required placeholder="Número"></div>
+        <div><label for="extra">Complemento</label><input id="extra" placeholder="Casa, apto., referência (opcional)"></div>
+      </div>
+      <label for="details">Observações (opcional)</label><textarea id="details" rows="3" placeholder="Modelo/tamanho desejado ou alguma informação adicional"></textarea>
+      <div class="note"><strong>Pagamento:</strong> Pix somente após a loja confirmar disponibilidade, valor total, frete e prazo de entrega. Não faça pagamento antes de receber essas informações e conferir os dados do vendedor.</div>
+      <button type="submit">Enviar pedido para confirmar disponibilidade</button>
+    </form>
+    <div id="result" role="status" aria-live="polite"></div>
+    <p class="small">* Campos obrigatórios. O envio abre uma conversa no WhatsApp; o pedido não é confirmado automaticamente.</p>
+  </section>
+</main>
+<footer>Loja de Natal • Atendimento e condições de entrega serão confirmados individualmente.</footer>
+<script>
+/* TROQUE PELO SEU WHATSAPP: código do país + DDD + número, só números.
+   Exemplo fictício: 5511999999999 */
+const WHATSAPP_NUMBER = "SEU_NUMERO_AQUI";
+const form = document.getElementById("orderForm");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  const val = id => document.getElementById(id).value.trim();
+  const data = {
+    nome:val("name"), telefone:val("phone"), quantidade:val("qty"),
+    cep:val("cep"), cidade:val("city"), estado:val("state").toUpperCase(),
+    bairro:val("district"), rua:val("street"), numero:val("number"),
+    complemento:val("extra") || "Não informado", observacoes:val("details") || "Nenhuma"
+  };
+  const message = [
+    "Olá! Quero consultar um pedido na Loja de Natal.",
+    "Produto: Árvore(s) de Natal",
+    "Nome: "+data.nome,
+    "Meu telefone: "+data.telefone,
+    "Quantidade: "+data.quantidade,
+    "Endereço: "+data.rua+", nº "+data.numero+", "+data.bairro,
+    "Complemento: "+data.complemento,
+    "CEP: "+data.cep,
+    "Cidade/UF: "+data.cidade+"/"+data.estado,
+    "Observações: "+data.observacoes,
+    "Por favor, confirme disponibilidade, preço total, frete e prazo de entrega. Entendi que o Pix será feito somente após essa confirmação."
+  ].join("\n");
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  if(!/^\d{12,13}$/.test(WHATSAPP_NUMBER)){
+    result.innerHTML = "<strong>Formulário preenchido!</strong><br>Para enviar o pedido, a loja ainda precisa configurar o número de WhatsApp no arquivo do site. Nenhum pedido foi enviado ou confirmado.";
+    return;
+  }
+  result.innerHTML = "<strong>Seu pedido está pronto para envio.</strong><br>O WhatsApp será aberto com os dados preenchidos. Toque em Enviar na conversa para encaminhar à loja. A confirmação e o prazo dependem do retorno do vendedor.";
+  const url = "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message);
+  window.open(url,"_blank","noopener");
+});
+</script>
+</body>
+</html>
